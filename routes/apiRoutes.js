@@ -23,7 +23,6 @@ async function appendNote(data) {
 async function deleteNote(id) {
   // fetch notes
   let notes = await readNotes();
-  console.log(notes)
 
   // delete note at given id
   notes.forEach((note, index) => {
@@ -46,6 +45,7 @@ module.exports = function(app) {
   // GET /api/notes Should read the db.json file and return all saved notes as JSON.
   app.get("/api/notes", function(req, res) {
     const noteData = readNotes();
+    console.log(noteData)
     res.json(noteData);
   });
 
