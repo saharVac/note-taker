@@ -8,7 +8,7 @@ const $noteList = $(".list-container .list-group");
 let activeNote = {};
 
 // A function for getting all notes from the db
-const getNotes = () => {
+function getNotes() {
 
   const notes = $.get("/api/notes", function(data) {
     // console.log(data)
@@ -115,7 +115,7 @@ const handleRenderSaveBtn = function () {
   }
 };
 
-// Render's the list of note titles
+// Renders the list of note titles
 function renderNoteList(notes) {
 
   console.log(getNotes())
