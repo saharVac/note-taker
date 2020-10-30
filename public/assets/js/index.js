@@ -10,12 +10,11 @@ let activeNote = {};
 // A function for getting all notes from the db
 const getNotes = () => {
 
-  const notes = $.ajax({
-    url: "/api/notes",
-    method: "GET",
-  });
+  
 
-  console.log(JSON.stringify(notes))
+  const notes = $.get("/api/notes", function(data) {
+    console.log(data)
+  })
 
   return JSON.stringify(notes)
 };
@@ -118,7 +117,7 @@ const handleRenderSaveBtn = function () {
   }
 };
 
-// Renders the list of note titles
+// Render's the list of note titles
 const renderNoteList = (notes) => {
   $noteList.empty();
 
@@ -146,9 +145,6 @@ const renderNoteList = (notes) => {
     noteListItems.push(create$li("No saved Notes", false));
   }
 
-  console.log(notes)
-
-
   notes.forEach((note) => {
     const $li = create$li(note.id, note.title).data(note);
     noteListItems.push($li);
@@ -159,7 +155,7 @@ const renderNoteList = (notes) => {
 
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => {
-  return renderNoteList(getNotes());
+  return getNotes().then(renderNoteList);
 };
 
 $saveNoteBtn.on("click", handleNoteSave);
