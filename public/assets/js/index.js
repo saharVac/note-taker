@@ -14,7 +14,7 @@ const getNotes = () => {
     console.log(data)
   })
 
-  return JSON.stringify(notes)
+  return notes
 };
 
 // A function for saving a note to the db
