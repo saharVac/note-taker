@@ -12,7 +12,7 @@ const getNotes = () => {
 
   const notes = $.get("/api/notes", function(data) {
     console.log(data)
-  })
+  }).data
 
   return notes
 };
