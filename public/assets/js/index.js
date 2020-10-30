@@ -10,10 +10,8 @@ let activeNote = {};
 // A function for getting all notes from the db
 const getNotes = () => {
 
-  
-
   const notes = $.get("/api/notes", function(data) {
-    // console.log(data)
+    console.log(data)
   })
 
   return JSON.stringify(notes)
