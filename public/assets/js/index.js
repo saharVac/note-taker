@@ -17,7 +17,6 @@ const getNotes = () => {
 
 // A function for saving a note to the db
 const saveNote = (note) => {
-  console.log("saving")
   return $.ajax({
     url: "/notes",
     data: note,
@@ -141,6 +140,8 @@ const renderNoteList = (notes) => {
   if (notes.length === 0) {
     noteListItems.push(create$li("No saved Notes", false));
   }
+
+  console.log(notes)
 
   notes.forEach((note) => {
     const $li = create$li(note.id, note.title).data(note);
