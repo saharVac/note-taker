@@ -20,6 +20,12 @@ require("./routes/htmlRoutes")(app);
 // API routes
 require("./routes/apiRoutes");
 
+
+
+
+
+
+
 // Listener
 app.listen(PORT, function() {
   console.log("APP litening on port: ", PORT)
