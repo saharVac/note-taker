@@ -15,6 +15,8 @@ const getNotes = () => {
     method: "GET",
   });
 
+  console.log(JSON.stringify(notes))
+
   return JSON.stringify(notes)
 };
 
