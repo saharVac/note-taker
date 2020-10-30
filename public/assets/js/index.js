@@ -11,7 +11,7 @@ let activeNote = {};
 const getNotes = () => {
 
   const notes = $.get("/api/notes", function(data) {
-    console.log(data)
+    // console.log(data)
   }).data
 
   return notes
@@ -139,11 +139,11 @@ const renderNoteList = (notes) => {
     return $li;
   };
 
+  console.log(notes)
+
   if (notes.length === 0) {
     noteListItems.push(create$li("No saved Notes", false));
   }
-
-  console.log(notes)
 
   notes.forEach((note) => {
     const $li = create$li(note.id, note.title).data(note);
