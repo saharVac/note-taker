@@ -10,7 +10,7 @@ let activeNote = {};
 // A function for getting all notes from the db
 const getNotes = () => {
   return $.ajax({
-    url: "/api/notes",
+    url: "/notes",
     method: "GET",
   });
 };
@@ -18,7 +18,7 @@ const getNotes = () => {
 // A function for saving a note to the db
 const saveNote = (note) => {
   return $.ajax({
-    url: "/api/notes",
+    url: "/notes",
     data: note,
     method: "POST",
   });
@@ -27,7 +27,7 @@ const saveNote = (note) => {
 // A function for deleting a note from the db
 const deleteNote = (id) => {
   return $.ajax({
-    url: "api/notes/" + id,
+    url: "/notes/" + id,
     method: "DELETE",
   });
 };
@@ -49,11 +49,23 @@ const renderActiveNote = () => {
   }
 };
 
+function generateID() {
+  // if note list isn't empty
+  notes = getNotes()
+  // if list is empty, return one
+  return notes.length + 1
+}
+
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
+  // GENERATE  ID
+  const id = generateID();
+
   const newNote = {
     title: $noteTitle.val(),
     text: $noteText.val(),
+    // PAss ID
+    id: id
   };
 
   saveNote(newNote).then(() => {
@@ -81,7 +93,7 @@ const handleNoteDelete = function (event) {
 
 // Sets the activeNote and displays it
 const handleNoteView = function () {
-  activeNote = $(this).data();
+  activeNote = $(this).data(); 
   renderActiveNote();
 };
 
@@ -109,8 +121,10 @@ const renderNoteList = (notes) => {
 
   // Returns jquery object for li with given text and delete button
   // unless withDeleteButton argument is provided as false
-  const create$li = (text, withDeleteButton = true) => {
+  const create$li = (id, text, withDeleteButton = true) => {
     const $li = $("<li class='list-group-item'>");
+    // add id to li
+    $li.attr(id) = id;
     const $span = $("<span>").text(text);
     $li.append($span);
 
@@ -128,7 +142,7 @@ const renderNoteList = (notes) => {
   }
 
   notes.forEach((note) => {
-    const $li = create$li(note.title).data(note);
+    const $li = create$li(note.id, note.title).data(note);
     noteListItems.push($li);
   });
 
