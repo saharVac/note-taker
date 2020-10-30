@@ -14,12 +14,12 @@ const getNotes = () => {
     console.log(data)
   })
 
-  const notes = $.ajax({
+  const notes = JSON.parse($.ajax({
     url: "/api/notes",
     method: "GET",
-  });
+  }));
 
-  
+
   console.log(notes)
   return notes
 };
