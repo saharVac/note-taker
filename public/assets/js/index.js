@@ -117,6 +117,9 @@ const handleRenderSaveBtn = function () {
 
 // Render's the list of note titles
 function renderNoteList(notes) {
+
+  console.log(notes)
+
   $noteList.empty();
 
   const noteListItems = [];
@@ -139,8 +142,6 @@ function renderNoteList(notes) {
     return $li;
   };
 
-  console.log(notes)
-
   if (notes.length === 0) {
     noteListItems.push(create$li("No saved Notes", false));
   }
@@ -155,7 +156,8 @@ function renderNoteList(notes) {
 
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => {
-  return renderNoteList(getNotes());
+  notes = getNotes()
+  return renderNoteList(notes);
 };
 
 $saveNoteBtn.on("click", handleNoteSave);
