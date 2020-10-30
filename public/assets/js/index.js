@@ -13,6 +13,7 @@ const getNotes = () => {
     url: "/notes",
     method: "GET",
   });
+  console.log(notes)
   return notes
 };
 
