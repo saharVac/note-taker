@@ -17,10 +17,10 @@ const getNotes = () => {
   const notes = $.ajax({
     url: "/api/notes",
     method: "GET",
-  }).then(
-    console.log(notes)
-  );
+  });
+
   
+  console.log(notes)
   return notes
 };
 
