@@ -9,11 +9,18 @@ let activeNote = {};
 
 // A function for getting all notes from the db
 const getNotes = () => {
+
+  $.get("/api/notes", function(data) {
+    console.log(data)
+  })
+
   const notes = $.ajax({
     url: "/api/notes",
     method: "GET",
-  });
-  console.log(notes)
+  }).then(
+    console.log(notes)
+  );
+  
   return notes
 };
 
