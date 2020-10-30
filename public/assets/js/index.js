@@ -13,7 +13,7 @@ const getNotes = () => {
   
 
   const notes = $.get("/api/notes", function(data) {
-    console.log(data)
+    // console.log(data)
   })
 
   return JSON.stringify(notes)
@@ -155,7 +155,7 @@ const renderNoteList = (notes) => {
 
 // Gets notes from the db and renders them to the sidebar
 const getAndRenderNotes = () => {
-  return getNotes().then(renderNoteList);
+  return renderNoteList(getNotes());
 };
 
 $saveNoteBtn.on("click", handleNoteSave);
