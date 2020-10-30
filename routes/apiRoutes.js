@@ -1,19 +1,21 @@
 // Load data
-var noteDataPath = "../db/db.json";
+var noteDataPath = "./db/db.json";
 var fs = require("fs")
 
 // async func to read the db
 async function readNotes() {
-  fs.readFile(noteDataPath, function(err, data) {
+  const notes = JSON.parse(fs.readFileSync(noteDataPath, async function(err, data) {
     if (err) throw err;
-    return data;
-  })
+  }))
+  return notes
 }
 
-// async func to rite to db
+// async func to write to db
 async function appendNote(data) {
+  notes = await readNotes()
+  notes.push(data)
   // note append req body
-  fs.appendFile(noteDataPath, data, function(err) {
+  fs.writeFile(noteDataPath, JSON.stringify(notes), function(err) {
     if (err) throw err;
   })
 }

@@ -52,7 +52,7 @@ const renderActiveNote = () => {
 function generateID() {
   // if note list isn't empty
   notes = getNotes()
-  // if list is empty, return one
+  // return id based on amount of notes
   return notes.length + 1
 }
 
