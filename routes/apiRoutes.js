@@ -22,20 +22,20 @@ async function appendNote(data) {
 
 async function deleteNote(id) {
   // fetch notes
-  let notes = []
-  fs.readFile(noteDataPath, function(err, data) {
-    if (err) throw err;
-    notes = data;
-  })
+  let notes = await readNotes();
+  console.log(notes)
 
   // delete note at given id
   notes.forEach((note, index) => {
     if (note.id === id) {
       // remove note from list
-      noteData.splice(index, 1)
-      // exit loop
-      break;
+      notes.splice(index, 1)
     }
+  })
+
+  // write new updated notes
+  fs.writeFile(noteDataPath, JSON.stringify(notes), function(err) {
+    if (err) throw err;
   })
 }
 
