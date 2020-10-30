@@ -45,7 +45,7 @@ module.exports = function(app) {
 
   // GET /api/notes Should read the db.json file and return all saved notes as JSON.
   app.get("/notes", function(req, res) {
-    readNotes(req.body);
+    const noteData = readNotes(req.body);
     res.json(noteData);
   });
 
