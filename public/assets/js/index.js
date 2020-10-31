@@ -118,12 +118,11 @@ const handleRenderSaveBtn = function () {
 // Renders the list of note titles
 async function renderNoteList() {
 
+  // fetch notes
   let notes;
-
   await $.get("/api/notes", function(data) {
     notes = data
   });
-  console.log(notes)
 
   $noteList.empty();
 
@@ -148,7 +147,7 @@ async function renderNoteList() {
   };
 
   if (notes.length === 0) {
-    noteListItems.push(create$li("No saved Notes", false));
+    noteListItems.push(create$li(2, "No saved Notes", false));
   }
 
   notes.forEach((note) => {
