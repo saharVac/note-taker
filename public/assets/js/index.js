@@ -120,7 +120,7 @@ async function renderNoteList() {
 
   let notes;
 
-  const notes = $.get("/api/notes", function(data) {
+  $.get("/api/notes", function(data) {
     notes = data
   }).data
   console.log(notes)
