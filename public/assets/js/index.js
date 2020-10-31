@@ -119,7 +119,7 @@ const handleRenderSaveBtn = function () {
 async function renderNoteList() {
 
   const notes = $.get("/api/notes", function(data) {
-    // console.log(data)
+    console.log(data)
   }).data
   console.log(notes)
 
