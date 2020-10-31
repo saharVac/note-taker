@@ -51,23 +51,18 @@ const renderActiveNote = () => {
   }
 };
 
-async function generateID() {
 
+
+// Get the note data from the inputs, save it to the db and update the view
+async function handleNoteSave() {
+
+  // GENERATE  ID
   let notes;
   await $.get("/api/notes", function(data) {
     notes = data
   });
   console.log(notes.length)
-
-  // return id based on amount of notes
-  return notes.length
-}
-
-// Get the note data from the inputs, save it to the db and update the view
-const handleNoteSave = function () {
-  // GENERATE  ID
-  const id = generateID();
-  console.log(id)
+  const id = notes.length;
 
   const newNote = {
     title: $noteTitle.val(),
