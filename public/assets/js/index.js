@@ -77,6 +77,8 @@ async function handleNoteSave() {
     id: id
   };
 
+  console.log(newNote)
+
   saveNote(newNote).then(() => {
     getAndRenderNotes();
     renderActiveNote();
