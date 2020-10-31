@@ -63,7 +63,7 @@ async function handleNoteSave() {
     notes = data
   });
 
-  console.log(notes)
+  console.log(notes.length)
   // if no notes, give id 1
   let id = 1;
   if (notes.length !== 0) {
