@@ -57,7 +57,7 @@ async function generateID() {
   await $.get("/api/notes", function(data) {
     notes = data
   });
-  console.log(notes)
+  console.log(notes.length)
 
   // return id based on amount of notes
   return notes.length + 1
