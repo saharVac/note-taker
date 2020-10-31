@@ -60,13 +60,14 @@ async function generateID() {
   console.log(notes.length)
 
   // return id based on amount of notes
-  return notes.length + 1
+  return notes.length
 }
 
 // Get the note data from the inputs, save it to the db and update the view
 const handleNoteSave = function () {
   // GENERATE  ID
   const id = generateID();
+  console.log(id)
 
   const newNote = {
     title: $noteTitle.val(),
