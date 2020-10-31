@@ -58,15 +58,14 @@ async function handleNoteSave() {
 
   // GENERATE  ID
   let notes;
-  let id;
+  
   await $.get("/api/notes", function(data) {
     notes = data
   });
   // if no notes, give id 1
+  let id;
   if (notes.length !== 0) {
     const id = parseInt(notes[notes.length - 1].id) + 1
-  } else {
-    const id = 1;
   }
   
 
