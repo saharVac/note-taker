@@ -51,13 +51,13 @@ const renderActiveNote = () => {
   }
 };
 
-function generateID() {
+async function generateID() {
 
   let notes;
   await $.get("/api/notes", function(data) {
     notes = data
   });
-  
+
   // return id based on amount of notes
   return notes.length + 1
 }
