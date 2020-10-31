@@ -61,7 +61,7 @@ async function handleNoteSave() {
   await $.get("/api/notes", function(data) {
     notes = data
   });
-  const id = notes.length + 1;
+  const id = parseInt(notes[notes.length - 1].id) + 1
 
   const newNote = {
     title: $noteTitle.val(),
