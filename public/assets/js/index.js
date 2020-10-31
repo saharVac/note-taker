@@ -131,9 +131,7 @@ async function renderNoteList() {
   // Returns jquery object for li with given text and delete button
   // unless withDeleteButton argument is provided as false
   const create$li = (id, text, withDeleteButton = true) => {
-    const $li = $("<li class='list-group-item'>");
-    // add id to li
-    $li.attr(id) = id;
+    const $li = $(`<li id='${id}' class='list-group-item'>`);
     const $span = $("<span>").text(text);
     $li.append($span);
 
