@@ -116,9 +116,9 @@ const handleRenderSaveBtn = function () {
 };
 
 // Renders the list of note titles
-function renderNoteList(notes) {
+async function renderNoteList(notes) {
 
-  console.log(getNotes())
+  console.log(await getNotes())
 
   $noteList.empty();
 
