@@ -120,9 +120,9 @@ async function renderNoteList() {
 
   let notes;
 
-  $.get("/api/notes", function(data) {
+  await $.get("/api/notes", function(data) {
     notes = data
-  }).data
+  });
   console.log(notes)
 
   $noteList.empty();
