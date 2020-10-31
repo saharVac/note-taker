@@ -52,8 +52,12 @@ const renderActiveNote = () => {
 };
 
 function generateID() {
-  // if note list isn't empty
-  notes = getNotes()
+
+  let notes;
+  await $.get("/api/notes", function(data) {
+    notes = data
+  });
+  
   // return id based on amount of notes
   return notes.length + 1
 }
