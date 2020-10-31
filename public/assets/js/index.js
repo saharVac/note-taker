@@ -62,10 +62,11 @@ async function handleNoteSave() {
     notes = data
   });
   // if no notes, give id 1
-  if (notes.length === 0) {
-    const id = 1;
-  } else {
+  if (notes.length !== 0) {
     const id = parseInt(notes[notes.length - 1].id) + 1
+    
+  } else {
+    const id = 1;
   }
   
 
