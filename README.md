@@ -1,6 +1,9 @@
 # NOTE TAKER
   [![Generic badge](https://img.shields.io/badge/Licencse-MIT-<COLOR>.svg)](https://shields.io/)
 
+  Link to depolyed heroku page:
+  https://note-taker-svac.herokuapp.com/
+
 
   ## Description
   This note taker helps keep track of information. You can add and delete existing notes
@@ -33,12 +36,6 @@
   ## Questions
   [link to my GitHub!](https://github.com/saharVac)
   [Email me!](mailto:vcsahar@gmail.com)
-  
-
-
-  ## License
-  MIT
-
 
   ## Contributing
   Email
